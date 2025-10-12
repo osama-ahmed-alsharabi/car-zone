@@ -1,3 +1,4 @@
+import 'package:car_zone/core/theme/dark_theme.dart';
 import 'package:car_zone/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class CarZone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: dark(),
       debugShowCheckedModeBanner: false,
       home: SplashView());
   }
