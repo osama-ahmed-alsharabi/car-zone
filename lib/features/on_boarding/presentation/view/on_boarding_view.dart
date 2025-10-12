@@ -42,6 +42,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextSkipWidget(),
             Expanded(

@@ -6,18 +6,15 @@ class TextSkipWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: TextButton(
-          onPressed: () {},
-          child: Text(
-            "تخطي",
-            style: context.textStyle.text16Bold.copyWith(
-              color: Colors.grey[400],
-              decoration: TextDecoration.underline,
-            ),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: TextButton(
+        onPressed: () {},
+        child: Text(
+          "تخطي",
+          style: context.textStyle.text16Bold.copyWith(
+            color: Colors.grey[400],
+            decoration: TextDecoration.underline,
           ),
         ),
       ),

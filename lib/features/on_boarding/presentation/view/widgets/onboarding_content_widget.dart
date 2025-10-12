@@ -41,12 +41,11 @@ class OnboardingContentWidget extends StatelessWidget {
                 child: Image.asset(
                   page.image,
                   fit: BoxFit.cover,
-                  width: double.infinity,
                 ),
               ),
             ),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 25),
           Text(
             page.title,
             style: context.textStyle.text24Bold.copyWith(

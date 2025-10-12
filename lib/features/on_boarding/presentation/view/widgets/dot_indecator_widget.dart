@@ -26,11 +26,7 @@ class DotIndecatorWidget extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
-            colors: [
-              Color(0xff212224),
-              Color(0xff212224),
-              Colors.transparent,
-            ],
+            colors: [Color(0xff212224), Color(0xff212224), Colors.transparent],
           ),
         ),
         child: Padding(
@@ -71,7 +67,6 @@ class DotIndecatorWidget extends StatelessWidget {
                   ),
                   onPressed: () {
                     if (_currentPage == _onboardingModels.length - 1) {
-                     
                     } else {
                       _pageController.nextPage(
                         duration: Duration(milliseconds: 500),
@@ -95,7 +90,7 @@ class DotIndecatorWidget extends StatelessWidget {
                         duration: Duration(milliseconds: 300),
                         child: _currentPage == _onboardingModels.length - 1
                             ? Icon(Icons.done_all_rounded, size: 20)
-                            : Icon(Icons.arrow_back_ios_new, size: 16),
+                            : SizedBox(),
                       ),
                     ],
                   ),
