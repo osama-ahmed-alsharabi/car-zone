@@ -1,3 +1,4 @@
+import 'package:car_zone/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,6 +9,8 @@ class CarZone extends StatelessWidget {
   const CarZone({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashView());
   }
 }
