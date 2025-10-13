@@ -59,6 +59,12 @@ class AppTextStyle {
             fontSize: 24, context: context),
         fontWeight: FontWeight.bold,
       );
+
+      TextStyle get text28Bold => TextStyle(
+        fontSize: TextResponsiveHelper.responsiveText(
+            fontSize: 28, context: context),
+        fontWeight: FontWeight.bold,
+      );
 }
 
 extension AppTextStyleExtension on BuildContext {

@@ -1,5 +1,6 @@
 import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
+import 'package:car_zone/features/auth/login/presentation/view/login_view.dart';
 import 'package:car_zone/features/on_boarding/data/onboarding_model.dart';
 import 'package:flutter/material.dart';
 
@@ -67,6 +68,10 @@ class DotIndecatorWidget extends StatelessWidget {
                   ),
                   onPressed: () {
                     if (_currentPage == _onboardingModels.length - 1) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginView()),
+                      );
                     } else {
                       _pageController.nextPage(
                         duration: Duration(milliseconds: 500),
