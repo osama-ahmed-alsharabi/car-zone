@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class LoginByGoogleAccountWidget extends StatelessWidget {
-  const LoginByGoogleAccountWidget({super.key});
+  final String label;
+  const LoginByGoogleAccountWidget({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,7 @@ class LoginByGoogleAccountWidget extends StatelessWidget {
           ),
         ),
         icon: SvgPicture.asset(AppAssets.imagesGoogleLogo),
-        label: Text(
-          'تسجيل الدخول بواسطة Google',
+        label: Text(label,
           style: context.textStyle.text16Regular.copyWith(color: Colors.white),
         ),
       ),

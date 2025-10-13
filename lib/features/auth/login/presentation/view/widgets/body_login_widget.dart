@@ -22,7 +22,7 @@ class BodyLoginWidget extends StatelessWidget {
         const SizedBox(height: 25),
         const LoginAsAVisiterWidget(),
         const SizedBox(height: 20),
-        const LoginByGoogleAccountWidget(),
+        const LoginByGoogleAccountWidget(label: 'تسجيل الدخول بواسطة Google'),
         const SizedBox(height: 30),
         const YouDoNotHaveAnAccountWidget(),
       ],
