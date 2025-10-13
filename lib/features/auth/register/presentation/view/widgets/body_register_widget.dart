@@ -1,4 +1,3 @@
-
 import 'package:car_zone/features/auth/login/presentation/view/widgets/login_by_google_account_widget.dart';
 import 'package:car_zone/features/auth/login/presentation/view/widgets/or_divider_widget.dart';
 import 'package:car_zone/features/auth/register/presentation/view/widgets/form_register_widget.dart';

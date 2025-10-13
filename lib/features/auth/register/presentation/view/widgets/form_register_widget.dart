@@ -1,6 +1,9 @@
 import 'package:car_zone/core/widgets/custom_button_widget.dart';
 import 'package:car_zone/core/widgets/custom_text_from_field_widget.dart';
+import 'package:car_zone/features/auth/register/data/model/user_model.dart';
+import 'package:car_zone/features/auth/register/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormRegisterWidget extends StatefulWidget {
   const FormRegisterWidget({super.key});
@@ -40,7 +43,18 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
             icon: Icons.lock_outline,
           ),
           const SizedBox(height: 30),
-          CustomButtonWidget(onPressed: () {}, text: 'إنشاء حساب'),
+          CustomButtonWidget(
+            onPressed: () {
+              BlocProvider.of<RegisterCubit>(context).registerCubit(
+                user: UserModel(
+                  fullName: fullNameController.text,
+                  email: emailController.text,
+                  password: passwordController.text,
+                ),
+              );
+            },
+            text: 'إنشاء حساب',
+          ),
         ],
       ),
     );
