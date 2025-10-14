@@ -18,6 +18,15 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
   TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  @override
+  void dispose() {
+    super.dispose();
+    fullNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -30,13 +39,13 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
             labelText: 'الاسم الكامل',
             icon: Icons.person_outline,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           CustomTextFormFieldWidget(
             controller: emailController,
             labelText: 'البريد الإلكتروني',
             icon: Icons.email_outlined,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           CustomTextFormFieldWidget(
             controller: passwordController,
             labelText: "كلمة المرور",
@@ -44,14 +53,19 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
           ),
           const SizedBox(height: 30),
           CustomButtonWidget(
-            onPressed: () {
-              BlocProvider.of<RegisterCubit>(context).registerCubit(
-                user: UserModel(
-                  fullName: fullNameController.text,
-                  email: emailController.text,
-                  password: passwordController.text,
-                ),
-              );
+            onPressed: () async {
+              if (formKey.currentState!.validate()) {
+                await BlocProvider.of<RegisterCubit>(context).registerCubit(
+                  user: UserModel(
+                    fullName: fullNameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                  ),
+                );
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
             },
             text: 'إنشاء حساب',
           ),

@@ -43,7 +43,7 @@ class RegisterBlocConsumerWidget extends StatelessWidget {
               ),
               body: SafeArea(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
                   child: BodyRegisterWidget(),
                 ),
               ),
