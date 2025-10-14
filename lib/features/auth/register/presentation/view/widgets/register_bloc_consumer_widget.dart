@@ -1,4 +1,6 @@
+import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/widgets/custom_app_bar_widget.dart';
+import 'package:car_zone/core/widgets/custom_snack_bar.dart';
 import 'package:car_zone/core/widgets/loading_widget.dart';
 import 'package:car_zone/features/auth/register/presentation/view/widgets/body_register_widget.dart';
 import 'package:car_zone/features/auth/register/presentation/view_model/register_cubit/register_cubit.dart';
@@ -14,9 +16,19 @@ class RegisterBlocConsumerWidget extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccessful) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("تم تسجيل الدخول بنجاح")));
+          CustomSnackBar.customSnackBar(
+            color: AppColors.successColor,
+            context: context,
+            title: "تم تسجيل الدخول بنجاح",
+          );
+
+          Navigator.pop(context);
         } else if (state is RegisterFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+          CustomSnackBar.customSnackBar(
+            color: AppColors.successColor,
+            context: context,
+            title: state.errorMessage,
+          );
         }
       },
       builder: (context, state) {
