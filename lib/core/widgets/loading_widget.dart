@@ -21,7 +21,7 @@ class LoadingWidget extends StatelessWidget {
         if (isLoading)
           Container(
             height: double.infinity,
-            color: Colors.white.withAlpha(200), 
+            color: Colors.black.withAlpha(200), 
             child: Container(
               child: Lottie.asset(
                 AppAssets.lottieLoadingWheel,          
