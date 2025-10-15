@@ -9,10 +9,12 @@ class RegisterRepoImp extends RegisterRepo {
     required UserModel user,
   }) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: user.email,
-        password: user.password,
-      );
+      final userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: user.email,
+            password: user.password,
+          );
+      await userCredential.user?.updateDisplayName(user.fullName);
       return Success("تم تسجيل الدخول بنجاح");
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -22,7 +24,7 @@ class RegisterRepoImp extends RegisterRepo {
       }
       return Failure("حدث خطاء غير معروف الرجاء المحاولة لاحقا");
     } catch (e) {
-      return Failure(e.toString() );
+      return Failure(e.toString());
     }
   }
 }
