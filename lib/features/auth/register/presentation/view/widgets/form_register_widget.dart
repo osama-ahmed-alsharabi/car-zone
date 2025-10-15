@@ -1,5 +1,6 @@
 import 'package:car_zone/core/helpers/validator_helper.dart';
 import 'package:car_zone/core/widgets/custom_button_widget.dart';
+import 'package:car_zone/core/widgets/custom_text_from_field_password_widget.dart';
 import 'package:car_zone/core/widgets/custom_text_from_field_widget.dart';
 import 'package:car_zone/features/auth/register/data/model/user_model.dart';
 import 'package:car_zone/features/auth/register/presentation/view_model/register_cubit/register_cubit.dart';
@@ -51,7 +52,7 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
             icon: Icons.email_outlined,
           ),
           const SizedBox(height: 15),
-          CustomTextFormFieldWidget(
+          CustomTextFormFieldPasswordWidget(
             validator: (value) =>
                 ValidatorHelper.validatePassword(value, context: context),
             controller: passwordController,
