@@ -1,3 +1,4 @@
+import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFieldPasswordWidget extends StatefulWidget {
@@ -24,7 +25,7 @@ class CustomTextFormFieldPasswordWidget extends StatefulWidget {
 
 class _CustomTextFormFieldPasswordWidgetState
     extends State<CustomTextFormFieldPasswordWidget> {
-  bool isVisibility = false;
+  bool isVisibility = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -48,9 +49,9 @@ class _CustomTextFormFieldPasswordWidgetState
         filled: true,
         fillColor: Colors.white10,
         enabledBorder: border(),
-        errorBorder: border(color: Colors.red),
+        errorBorder: border(color: AppColors.errorColor),
         focusedBorder: border(),
-        focusedErrorBorder: border(color: Colors.red),
+        focusedErrorBorder: border(color: AppColors.errorColor),
       ),
       keyboardType: TextInputType.emailAddress,
     );

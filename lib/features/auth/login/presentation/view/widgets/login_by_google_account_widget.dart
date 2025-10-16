@@ -21,7 +21,8 @@ class LoginByGoogleAccountWidget extends StatelessWidget {
           ),
         ),
         icon: SvgPicture.asset(AppAssets.imagesGoogleLogo),
-        label: Text(label,
+        label: Text(
+          label,
           style: context.textStyle.text16Regular.copyWith(color: Colors.white),
         ),
       ),

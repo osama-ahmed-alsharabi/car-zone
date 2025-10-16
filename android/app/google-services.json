@@ -12,7 +12,20 @@
           "package_name": "com.example.car_zone"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "841039182591-mfcm77vk9loqfb072f46dvcap354r8sv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.car_zone",
+            "certificate_hash": "9c372fc9030ba7839924379ce4473a7ba30fad7e"
+          }
+        },
+        {
+          "client_id": "841039182591-62oqvl7m06jdg6antpm0t9k46jbv7uli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDFs4_q3zgkLUPsQTRJTyTc4Rl4qIvDBBs"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841039182591-62oqvl7m06jdg6antpm0t9k46jbv7uli.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "841039182591-rv12p0gu4qp42pdgkpqtlgk8olfbgiml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.carZone"
+              }
+            }
+          ]
         }
       }
     }
