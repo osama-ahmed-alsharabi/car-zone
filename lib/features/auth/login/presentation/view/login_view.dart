@@ -1,18 +1,17 @@
-import 'package:car_zone/features/auth/login/presentation/view/widgets/body_login_widget.dart';
+import 'package:car_zone/features/auth/login/data/imp/login_imp.dart';
+import 'package:car_zone/features/auth/login/presentation/view/widgets/login_consumer_builder_widget.dart';
+import 'package:car_zone/features/auth/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-          child: BodyLoginWidget(),
-        ),
-      ),
+    return BlocProvider(
+      create: (context) => LoginCubit(LoginImp()),
+      child: LoginConsumerBuilderWidget(),
     );
   }
 }

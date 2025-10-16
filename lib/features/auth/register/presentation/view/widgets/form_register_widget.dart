@@ -5,7 +5,6 @@ import 'package:car_zone/core/widgets/custom_text_from_field_widget.dart';
 import 'package:car_zone/core/model/user_model.dart';
 import 'package:car_zone/features/auth/register/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormRegisterWidget extends StatefulWidget {
