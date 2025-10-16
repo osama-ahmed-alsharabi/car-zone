@@ -5,6 +5,7 @@ import 'package:car_zone/core/widgets/custom_text_from_field_widget.dart';
 import 'package:car_zone/features/auth/register/data/model/user_model.dart';
 import 'package:car_zone/features/auth/register/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormRegisterWidget extends StatefulWidget {
@@ -37,14 +38,18 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
       child: Column(
         children: [
           CustomTextFormFieldWidget(
-            validator: (value) =>
-                ValidatorHelper.validateRequired(value,fieldName: 'الاسم الكامل', context: context),
+            validator: (value) => ValidatorHelper.validateRequired(
+              value,
+              fieldName: 'الاسم الكامل',
+              context: context,
+            ),
             controller: fullNameController,
             labelText: 'الاسم الكامل',
             icon: Icons.person_outline,
           ),
           const SizedBox(height: 15),
           CustomTextFormFieldWidget(
+            keyboardType: TextInputType.emailAddress,
             validator: (value) =>
                 ValidatorHelper.validateEmail(value, context: context),
             controller: emailController,

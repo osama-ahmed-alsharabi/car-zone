@@ -25,7 +25,7 @@ class RegisterBlocConsumerWidget extends StatelessWidget {
           Navigator.pop(context);
         } else if (state is RegisterFailure) {
           CustomSnackBar.customSnackBar(
-            color: AppColors.successColor,
+            color: AppColors.errorColor,
             context: context,
             title: state.errorMessage,
           );

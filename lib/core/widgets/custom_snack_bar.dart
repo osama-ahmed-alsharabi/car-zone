@@ -9,6 +9,8 @@ abstract class CustomSnackBar {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.all(16),
         backgroundColor: color,
         content: Text(title, style: context.textStyle.text14Bold),
       ),
