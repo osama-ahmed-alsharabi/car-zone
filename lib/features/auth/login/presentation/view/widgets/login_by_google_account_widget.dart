@@ -1,6 +1,8 @@
 import 'package:car_zone/core/utils/app_text_style.dart';
 import 'package:car_zone/core/utils/assets.dart';
+import 'package:car_zone/features/auth/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class LoginByGoogleAccountWidget extends StatelessWidget {
@@ -13,7 +15,11 @@ class LoginByGoogleAccountWidget extends StatelessWidget {
       width: double.infinity,
       height: 55,
       child: OutlinedButton.icon(
-        onPressed: () {},
+        onPressed: () async {
+          await BlocProvider.of<LoginCubit>(
+            context,
+          ).loginWithGoogleAccountCubit();
+        },
         style: OutlinedButton.styleFrom(
           side: const BorderSide(color: Colors.white24),
           shape: RoundedRectangleBorder(

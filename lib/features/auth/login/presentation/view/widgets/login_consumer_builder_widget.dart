@@ -17,7 +17,7 @@ class LoginConsumerBuilderWidget extends StatelessWidget {
         if (state is LoginSuccess) {
           CustomSnackBar.customSnackBar(
             context: context,
-            title: "تم تسجيل الدخول بنجاح",
+            title: state.successMessage,
             color: AppColors.successColor,
           );
         } else if (state is LoginFaulier) {

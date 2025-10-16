@@ -10,7 +10,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   registerCubit({required UserModel user}) async {
     emit(RegisterLoading());
-    ApiResult result = await registerRepo.registerEmailAndPasswordWithFirebase(
+    BackendResult result = await registerRepo.registerEmailAndPasswordWithFirebase(
       user: user,
     );
 

@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterRepoImp extends RegisterRepo {
   @override
-  Future<ApiResult<String, String>> registerEmailAndPasswordWithFirebase({
+  Future<BackendResult<String, String>> registerEmailAndPasswordWithFirebase({
     required UserModel user,
   }) async {
     try {
