@@ -1,6 +1,7 @@
+import 'package:car_zone/core/utils/app_router_const.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
-import 'package:car_zone/features/auth/login/presentation/view/login_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class TextSkipWidget extends StatelessWidget {
   const TextSkipWidget({super.key});
@@ -10,12 +11,7 @@ class TextSkipWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextButton(
-        onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => LoginView()),
-          );
-        },
+        onPressed: () => context.pushReplacementNamed(AppRouterConst.loginViewRouteName),
         child: Text(
           "تخطي",
           style: context.textStyle.text16Bold.copyWith(

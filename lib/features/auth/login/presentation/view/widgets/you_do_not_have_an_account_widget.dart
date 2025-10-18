@@ -1,6 +1,7 @@
 import 'package:car_zone/core/utils/app_colors.dart';
-import 'package:car_zone/features/auth/register/presentation/view/register_view.dart';
+import 'package:car_zone/core/utils/app_router_const.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class YouDoNotHaveAnAccountWidget extends StatelessWidget {
   const YouDoNotHaveAnAccountWidget({super.key});
@@ -13,10 +14,7 @@ class YouDoNotHaveAnAccountWidget extends StatelessWidget {
         const Text('ليس لديك حساب؟ ', style: TextStyle(color: Colors.white70)),
         TextButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => RegisterView()),
-            );
+            context.pushNamed(AppRouterConst.registerViewRouteName);
           },
           child: Text(
             'إنشاء حساب',
