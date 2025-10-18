@@ -13,7 +13,7 @@ class LoginView extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           LoginCubit(LoginImp(firebaseAuth: FirebaseAuth.instance)),
-      child: LoginConsumerBuilderWidget(),
+      child: const LoginConsumerBuilderWidget(),
     );
   }
 }

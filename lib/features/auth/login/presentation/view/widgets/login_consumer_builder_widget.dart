@@ -33,13 +33,10 @@ class LoginConsumerBuilderWidget extends StatelessWidget {
           canPop: state is! LoginLoading,
           child: LoadingWidget(
             isLoading: state is LoginLoading,
-            child: Scaffold(
+            child: const Scaffold(
               body: SafeArea(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 20,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
                   child: BodyLoginWidget(),
                 ),
               ),

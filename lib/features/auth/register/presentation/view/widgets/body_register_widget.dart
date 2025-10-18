@@ -4,9 +4,7 @@ import 'package:car_zone/features/auth/register/presentation/view/widgets/you_al
 import 'package:flutter/material.dart';
 
 class BodyRegisterWidget extends StatelessWidget {
-  const BodyRegisterWidget({
-    super.key,
-  });
+  const BodyRegisterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +12,9 @@ class BodyRegisterWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(AppAssets.imagesLogo),
-        FormRegisterWidget(),
+        const FormRegisterWidget(),
         const SizedBox(height: 25),
-        YouAlreadyHaveAnAccountWidget(),
+        const YouAlreadyHaveAnAccountWidget(),
       ],
     );
   }

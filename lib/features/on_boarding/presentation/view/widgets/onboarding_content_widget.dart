@@ -45,7 +45,7 @@ class OnboardingContentWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           Text(
             page.title,
             style: context.textStyle.text24Bold.copyWith(
@@ -54,7 +54,7 @@ class OnboardingContentWidget extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(

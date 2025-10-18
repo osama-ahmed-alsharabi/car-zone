@@ -41,7 +41,7 @@ class RegisterBlocConsumerWidget extends StatelessWidget {
                 context: context,
                 titleText: 'إنشاء حساب جديد',
               ),
-              body: SafeArea(
+              body: const SafeArea(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
                   child: BodyRegisterWidget(),

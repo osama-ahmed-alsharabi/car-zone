@@ -52,7 +52,7 @@ class DotIndecatorWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               SizedBox(
                 width: double.infinity,
                 height: 56,
@@ -90,12 +90,12 @@ class DotIndecatorWidget extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       AnimatedSwitcher(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         child: _currentPage == _onboardingModels.length - 1
-                            ? Icon(Icons.done_all_rounded, size: 20)
-                            : SizedBox(),
+                            ? const Icon(Icons.done_all_rounded, size: 20)
+                            : const SizedBox(),
                       ),
                     ],
                   ),

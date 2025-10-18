@@ -44,7 +44,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextSkipWidget(),
+            const TextSkipWidget(),
             Expanded(
               flex: 3,
               child: PageView.builder(

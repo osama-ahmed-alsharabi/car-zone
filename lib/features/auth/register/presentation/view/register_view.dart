@@ -11,7 +11,7 @@ class RegisterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => RegisterCubit(RegisterRepoImp()),
-      child: RegisterBlocConsumerWidget(),
+      child: const RegisterBlocConsumerWidget(),
     );
   }
 }
