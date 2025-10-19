@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/theme/dark_theme.dart';
 import 'package:car_zone/core/utils/app_router.dart';
 import 'package:car_zone/generated/l10n.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  setup();
   runApp(const CarZone());
 }
 
