@@ -9,7 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  setup();
+  setupServiceLocator();
   runApp(const CarZone());
 }
 
