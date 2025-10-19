@@ -1,4 +1,4 @@
-import 'package:car_zone/core/helpers/api_result.dart';
+import 'package:car_zone/core/helpers/backend_result.dart';
 import 'package:car_zone/core/model/user_model.dart';
 import 'package:car_zone/features/auth/login/data/repo/login_repo.dart';
 import 'package:car_zone/features/auth/login/presentation/view_model/cubit/login_state.dart';
