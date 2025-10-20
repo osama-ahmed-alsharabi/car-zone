@@ -13,7 +13,7 @@ class RegisterRepoImp extends RegisterRepo {
       final userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
             email: user.email,
-            password: user.password,
+            password: user.password!,
           );
       await userCredential.user?.updateDisplayName(user.fullName);
       return Success("تم تسجيل الدخول بنجاح");

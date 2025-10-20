@@ -16,7 +16,7 @@ class LoginImp extends LoginRepo {
     try {
       await firebaseAuth.signInWithEmailAndPassword(
         email: user.email,
-        password: user.password,
+        password: user.password!,
       );
       return Success("تم تسجيل الدخول بنجاح");
     } on FirebaseAuthException catch (e) {
