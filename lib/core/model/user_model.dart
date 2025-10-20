@@ -43,15 +43,10 @@ class UserModel {
 
   Map<String, dynamic> toJson() {
     return {
-      "id": id,
       "name": fullName,
       "email": email,
       "password": password,
       "phone": phoneNumber,
-      "google_id": googleId,
-      "email_verified_at": emailVerifiedAt?.toIso8601String(),
-      "created_at": createdAt?.toIso8601String(),
-      "updated_at": updatedAt?.toIso8601String(),
     };
   }
 }

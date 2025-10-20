@@ -34,7 +34,12 @@ class RegisterRepoImp extends RegisterRepo {
   Future<BackendResult<String, String>> registerEmailAndPasswordWithAPI({
     required UserModel user,
   }) async {
-    final result = await apiHelper.post(endPoint: "api/register_by_email");
+    final result = await apiHelper.post(
+      contentType: "application/json",
+      accept: "application/json",
+      data: user.toJson(),
+      endPoint: "api/register_by_email",
+    );
     if (result is Success) {
       return Success("done");
     } else {

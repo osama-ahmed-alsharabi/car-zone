@@ -10,11 +10,17 @@ class ApiHelper {
   Future<BackendResult<T, String>> post<T>({
     required String endPoint,
     Map<String, dynamic>? data,
+    required String accept,
+    required String contentType,
     String? token,
   }) async {
     try {
       final options = Options(
-        headers: token != null ? {'Authorization': 'Bearer $token'} : null,
+        headers: {
+          "Content-Type": contentType,
+          "Accept": accept,
+          if (token != null) "Authorization": "Bearer $token",
+        },
       );
       Response result = await dio.post(
         "$baseURL$endPoint",

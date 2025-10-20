@@ -8,9 +8,21 @@ class RegisterCubit extends Cubit<RegisterState> {
   final RegisterRepo registerRepo;
   RegisterCubit(this.registerRepo) : super(RegisterInitial());
 
-  registerCubit({required UserModel user}) async {
+  registerWithFirebase({required UserModel user}) async {
     emit(RegisterLoading());
-    BackendResult result = await registerRepo.registerEmailAndPasswordWithFirebase(
+    BackendResult result = await registerRepo
+        .registerEmailAndPasswordWithFirebase(user: user);
+
+    if (result is Success) {
+      emit(RegisterSuccessful());
+    } else {
+      emit(RegisterFailure(errorMessage: (result as Failure).error));
+    }
+  }
+
+  registerWithAPI({required UserModel user}) async {
+    emit(RegisterLoading());
+    BackendResult result = await registerRepo.registerEmailAndPasswordWithAPI(
       user: user,
     );
 

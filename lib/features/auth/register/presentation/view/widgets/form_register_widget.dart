@@ -67,7 +67,7 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
           CustomButtonWidget(
             onPressed: () async {
               if (formKey.currentState!.validate()) {
-                await BlocProvider.of<RegisterCubit>(context).registerCubit(
+                await BlocProvider.of<RegisterCubit>(context).registerWithAPI(
                   user: UserModel(
                     fullName: fullNameController.text,
                     email: emailController.text,
