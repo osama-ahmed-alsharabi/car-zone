@@ -5,4 +5,8 @@ abstract class RegisterRepo {
   Future<BackendResult<String, String>> registerEmailAndPasswordWithFirebase({
     required UserModel user,
   });
+
+  Future<BackendResult<String, String>> registerEmailAndPasswordWithAPI({
+    required UserModel user,
+  });
 }

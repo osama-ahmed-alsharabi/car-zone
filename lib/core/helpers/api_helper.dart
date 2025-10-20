@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 class ApiHelper {
   final Dio dio;
-  String baseURL = "https://carzone.dev-options.com";
+  String baseURL = "https://carzone.dev-options.com/";
 
   ApiHelper({required this.dio});
 

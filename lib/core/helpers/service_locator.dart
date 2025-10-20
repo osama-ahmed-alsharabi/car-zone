@@ -1,7 +1,9 @@
+import 'package:car_zone/core/helpers/api_helper.dart';
 import 'package:car_zone/features/auth/login/data/imp/login_imp.dart';
 import 'package:car_zone/features/auth/login/data/repo/login_repo.dart';
 import 'package:car_zone/features/auth/register/data/imp/register_repo_imp.dart';
 import 'package:car_zone/features/auth/register/data/repo/register_repo.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
@@ -12,5 +14,7 @@ void setupServiceLocator() {
     LoginImp(firebaseAuth: FirebaseAuth.instance),
   );
 
-  getIt.registerSingleton<RegisterRepo>(RegisterRepoImp());
+  getIt.registerSingleton<RegisterRepo>(
+    RegisterRepoImp(apiHelper: ApiHelper(dio: Dio())),
+  );
 }
