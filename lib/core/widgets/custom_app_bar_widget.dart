@@ -33,6 +33,7 @@ class CustomAppBarWidget extends AppBar {
              ],
            ),
          ),
+         scrolledUnderElevation: 0,
          toolbarHeight: 70,
          flexibleSpace: const Padding(
            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 40),
