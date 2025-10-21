@@ -1,6 +1,6 @@
 import 'package:car_zone/core/helpers/api_helper.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
-import 'package:car_zone/core/helpers/firebase_error_helper.dart';
+import 'package:car_zone/core/errors/firebase_error_helper.dart';
 import 'package:car_zone/core/model/user_model.dart';
 import 'package:car_zone/features/auth/register/data/repo/register_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,12 +38,12 @@ class RegisterRepoImp extends RegisterRepo {
       contentType: "application/json",
       accept: "application/json",
       data: user.toJson(),
-      endPoint: "api/register_by_email",
+      endPoint: "register_by_email",
     );
     if (result is Success) {
       return Success("done");
     } else {
-      return Failure("error");
+      return Failure((result as Failure).error);
     }
   }
 }

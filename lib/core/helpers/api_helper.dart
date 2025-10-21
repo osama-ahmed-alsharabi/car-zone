@@ -1,9 +1,10 @@
+import 'package:car_zone/core/errors/backend_exception_handler.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
 import 'package:dio/dio.dart';
 
 class ApiHelper {
   final Dio dio;
-  String baseURL = "https://carzone.dev-options.com/";
+  String baseURL = "https://carzone.dev-options.com/api/";
 
   ApiHelper({required this.dio});
 
@@ -28,8 +29,12 @@ class ApiHelper {
         data: data,
       );
       return Success(result.data as T);
+    } on DioException catch (e) {
+      final errorData = e.response?.data ?? {};
+      final handler = BackendExceptionHandlerX.fromResponse(errorData);
+      return Failure(handler.message);
     } catch (e) {
-      return Failure("unknown");
+      return Failure("حدث خطأ أثناء الاتصال بالخادم. الرجاء المحاولة لاحقًا.");
     }
   }
 }
