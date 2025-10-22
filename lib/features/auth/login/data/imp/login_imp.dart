@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/api_helper.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
 import 'package:car_zone/core/errors/firebase_error_helper.dart';
 import 'package:car_zone/core/model/user_model.dart';
@@ -7,10 +8,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginImp extends LoginRepo {
   final FirebaseAuth firebaseAuth;
+  final ApiHelper apiHelper;
 
-  LoginImp({required this.firebaseAuth});
+  LoginImp({required this.firebaseAuth, required this.apiHelper});
   @override
-  Future<BackendResult<String, String>> loginWithEmailAndPassword({
+  Future<BackendResult<String, String>> loginWithEmailAndPasswordWithFirebase({
     required UserModel user,
   }) async {
     try {
@@ -48,6 +50,22 @@ class LoginImp extends LoginRepo {
       return Failure(errorMessage);
     } catch (e) {
       return Failure("فشل تسجيل الدخول عبر Google:");
+    }
+  }
+
+  @override
+  Future<BackendResult<UserModel, String>>
+  loginWithEmailAndPasswordWithBackend({required UserModel user}) async {
+    final result = await apiHelper.post(
+      endPoint: "login",
+      accept: "application/json",
+      contentType: "application/json",
+      data: user.toJson(),
+    );
+    if (result is Success) {
+      return Success(UserModel.fromJson((result as Success).value["user"]));
+    } else {
+      return Failure((result as Failure).error);
     }
   }
 }

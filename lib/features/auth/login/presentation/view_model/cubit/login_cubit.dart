@@ -10,7 +10,9 @@ class LoginCubit extends Cubit<LoginState> {
 
   loginWithEmailAndPasswordCubit({required UserModel user}) async {
     emit(LoginLoading());
-    final result = await loginRepo.loginWithEmailAndPassword(user: user);
+    final result = await loginRepo.loginWithEmailAndPasswordWithFirebase(
+      user: user,
+    );
     if (result is Success) {
       emit(LoginSuccess(successMessage: (result as Success).value));
     } else {

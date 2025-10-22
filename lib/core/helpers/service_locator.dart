@@ -10,11 +10,15 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 void setupServiceLocator() {
+  getIt.registerSingleton<ApiHelper>(ApiHelper(dio: Dio()));
   getIt.registerSingleton<LoginRepo>(
-    LoginImp(firebaseAuth: FirebaseAuth.instance),
+    LoginImp(
+      firebaseAuth: FirebaseAuth.instance,
+      apiHelper: getIt.get<ApiHelper>(),
+    ),
   );
 
   getIt.registerSingleton<RegisterRepo>(
-    RegisterRepoImp(apiHelper: ApiHelper(dio: Dio())),
+    RegisterRepoImp(apiHelper: getIt.get<ApiHelper>()),
   );
 }
