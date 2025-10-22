@@ -30,6 +30,9 @@ class ApiHelper {
       );
       return Success(result.data as T);
     } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionError) {
+        return Failure("الرجاء التحقق من الاتصال بالانترنت");
+      }
       final errorData = e.response?.data ?? {};
       final handler = BackendExceptionHandlerX.fromResponse(errorData);
       return Failure(handler.message);
