@@ -1,4 +1,4 @@
-import 'package:car_zone/core/utils/app_router_const.dart';
+import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

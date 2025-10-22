@@ -1,5 +1,5 @@
-import 'package:car_zone/core/utils/app_router_const.dart';
-import 'package:car_zone/core/utils/page_transitions.dart';
+import 'package:car_zone/core/router/app_router_const.dart';
+import 'package:car_zone/core/router/page_transitions.dart';
 import 'package:car_zone/features/auth/login/presentation/view/login_view.dart';
 import 'package:car_zone/features/auth/register/presentation/view/register_view.dart';
 import 'package:car_zone/features/home/presentation/view/home_view.dart';

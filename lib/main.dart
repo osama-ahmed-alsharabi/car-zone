@@ -1,6 +1,6 @@
 import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/theme/dark_theme.dart';
-import 'package:car_zone/core/utils/app_router.dart';
+import 'package:car_zone/core/router/app_router.dart';
 import 'package:car_zone/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

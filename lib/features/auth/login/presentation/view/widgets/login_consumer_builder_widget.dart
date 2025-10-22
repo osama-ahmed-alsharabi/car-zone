@@ -1,4 +1,4 @@
-import 'package:car_zone/core/utils/app_router_const.dart';
+import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/widgets/custom_snack_bar.dart';
 import 'package:car_zone/core/widgets/loading_widget.dart';
