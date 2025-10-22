@@ -2,6 +2,7 @@ import 'package:car_zone/core/utils/app_router_const.dart';
 import 'package:car_zone/core/utils/page_transitions.dart';
 import 'package:car_zone/features/auth/login/presentation/view/login_view.dart';
 import 'package:car_zone/features/auth/register/presentation/view/register_view.dart';
+import 'package:car_zone/features/home/presentation/view/home_view.dart';
 import 'package:car_zone/features/on_boarding/presentation/view/on_boarding_view.dart';
 import 'package:car_zone/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -43,7 +44,16 @@ class AppRouter {
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const RegisterView(),
-          transitionsBuilder: PageTransitions.slideFromBottom,
+          transitionsBuilder: PageTransitions.slideFromLeft,
+        ),
+      ),
+      GoRoute(
+        path: '/${AppRouterConst.homeViewRouteName}',
+        name: AppRouterConst.homeViewRouteName,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const HomeView(),
+          transitionsBuilder: PageTransitions.slideFromLeft,
         ),
       ),
     ],

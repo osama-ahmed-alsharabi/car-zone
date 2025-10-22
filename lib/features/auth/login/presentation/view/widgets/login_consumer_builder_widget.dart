@@ -1,3 +1,4 @@
+import 'package:car_zone/core/utils/app_router_const.dart';
 import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/widgets/custom_snack_bar.dart';
 import 'package:car_zone/core/widgets/loading_widget.dart';
@@ -6,6 +7,7 @@ import 'package:car_zone/features/auth/login/presentation/view_model/cubit/login
 import 'package:car_zone/features/auth/login/presentation/view_model/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginConsumerBuilderWidget extends StatelessWidget {
   const LoginConsumerBuilderWidget({super.key});
@@ -20,6 +22,7 @@ class LoginConsumerBuilderWidget extends StatelessWidget {
             title: state.successMessage,
             color: AppColors.successColor,
           );
+          context.go("/${AppRouterConst.homeViewRouteName}");
         } else if (state is LoginFaulier) {
           CustomSnackBar.customSnackBar(
             context: context,
