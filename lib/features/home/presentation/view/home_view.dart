@@ -1,3 +1,5 @@
+import 'package:car_zone/features/home/presentation/view/widgets/home_app_bar_widget.dart';
+import 'package:car_zone/features/home/presentation/view/widgets/home_view_body_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,7 +8,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Column()),
+      appBar: HomeAppBarWidget(context: context),
+      body: SafeArea(child: HomeViewBodyWidget()),
     );
   }
 }
