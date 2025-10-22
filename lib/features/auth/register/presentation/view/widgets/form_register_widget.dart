@@ -65,6 +65,8 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
           ),
           const SizedBox(height: 15),
           CustomTextFormFieldWidget(
+            validator: (value) =>
+                ValidatorHelper.validatePhoneNumber(value, context: context),
             keyboardType: TextInputType.number,
             controller: phoneController,
             labelText: 'رقم الهاتف',

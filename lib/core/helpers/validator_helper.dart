@@ -40,4 +40,37 @@ class ValidatorHelper {
     }
     return null;
   }
+
+  static String? validatePhoneNumber(
+    String? value, {
+    required BuildContext context,
+  }) {
+    final raw = value?.trim() ?? '';
+    if (raw.isEmpty) {
+      return "الرجاء ادخال رقم الهاتف";
+    }
+
+    final normalized = _toAsciiDigits(raw).replaceAll(RegExp(r'[\s-]'), '');
+
+    final phoneRegex = RegExp(r'^(77|78|71|73|70)\d{7}$');
+
+    if (!phoneRegex.hasMatch(normalized)) {
+      return "يجب ان يكون 9 ارقام وان يبداء 77, 78 , 71 , 73 , 70";
+    }
+    return null;
+  }
+
+  static String _toAsciiDigits(String input) {
+    final sb = StringBuffer();
+    for (final cp in input.runes) {
+      if (cp >= 0x0660 && cp <= 0x0669) {
+        sb.write(cp - 0x0660);
+      } else if (cp >= 0x06F0 && cp <= 0x06F9) {
+        sb.write(cp - 0x06F0);
+      } else {
+        sb.write(String.fromCharCode(cp));
+      }
+    }
+    return sb.toString();
+  }
 }
