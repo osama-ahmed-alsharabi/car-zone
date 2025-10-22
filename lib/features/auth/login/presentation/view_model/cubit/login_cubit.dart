@@ -29,4 +29,17 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginFaulier(errorMessage: (result as Failure).error));
     }
   }
+
+  Future<void> loginWithBackendCubit({required UserModel user}) async {
+    emit(LoginLoading());
+    final result = await loginRepo.loginWithEmailAndPasswordWithBackend(
+      user: user,
+    );
+    if (result is Success) {
+      UserModel userModel = (result as Success).value;
+      emit(LoginSuccess(successMessage: "مرحبا بك ${userModel.fullName}"));
+    } else {
+      emit(LoginFaulier(errorMessage: (result as Failure).error));
+    }
+  }
 }

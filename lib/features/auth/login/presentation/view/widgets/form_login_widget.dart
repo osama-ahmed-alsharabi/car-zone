@@ -54,9 +54,7 @@ class _FormLoginWidgetState extends State<FormLoginWidget> {
           CustomButtonWidget(
             onPressed: () {
               if (formKey.currentState!.validate()) {
-                BlocProvider.of<LoginCubit>(
-                  context,
-                ).loginWithEmailAndPasswordCubit(
+                BlocProvider.of<LoginCubit>(context).loginWithBackendCubit(
                   user: UserModel(
                     email: emailController.text,
                     password: passwordController.text,
