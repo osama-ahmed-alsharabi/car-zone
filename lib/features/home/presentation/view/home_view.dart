@@ -12,8 +12,17 @@ class HomeView extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeUiCubit(),
       child: Scaffold(
-        body: HomeBlocBuilderWidget(),
-        bottomNavigationBar: HomeBottomNavigationBarWidget(),
+        body: Stack(
+          children: [
+            const HomeBlocBuilderWidget(),
+            Positioned(
+              left: 24,
+              right: 24,
+              bottom: 24,
+              child: HomeBottomNavigationBarWidgetInline(),
+            ),
+          ],
+        ),
       ),
     );
   }
