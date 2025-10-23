@@ -40,4 +40,32 @@ class ApiHelper {
       return Failure("حدث خطأ أثناء الاتصال بالخادم. الرجاء المحاولة لاحقًا.");
     }
   }
+
+  Future<BackendResult<T, String>> get<T>({
+    required String endPoint,
+    required String contentType,
+    required String accept,
+    required String token,
+  }) async {
+    try {
+      Options options = Options(
+        headers: {
+          "Content-Type": contentType,
+          "Accept": accept,
+          "Authorization": "Bearer $token",
+        },
+      );
+      Response response = await dio.get(options: options, "$baseURL$endPoint");
+      return Success(response.data);
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionError) {
+        return Failure("الرجاء التحقق من الاتصال بالانترنت");
+      }
+      final errorData = e.response?.data ?? {};
+      final handler = BackendExceptionHandlerX.fromResponse(errorData);
+      return Failure(handler.message);
+    } catch (e) {
+      return Failure("حدث خطأ أثناء الاتصال بالخادم. الرجاء المحاولة لاحقًا.");
+    }
+  }
 }
