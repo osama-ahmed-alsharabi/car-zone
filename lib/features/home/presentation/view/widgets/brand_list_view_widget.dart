@@ -36,7 +36,7 @@ class BrandListViewWidget extends StatelessWidget {
           ),
           SizedBox(height: 8),
           SizedBox(
-            height: 70,
+            height: 120,
             child: ListView.builder(
               itemCount: brands.length,
               scrollDirection: Axis.horizontal,
