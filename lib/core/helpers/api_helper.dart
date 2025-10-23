@@ -45,7 +45,7 @@ class ApiHelper {
     required String endPoint,
     required String contentType,
     required String accept,
-    required String token,
+    String? token,
   }) async {
     try {
       Options options = Options(
