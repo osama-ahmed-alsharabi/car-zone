@@ -10,9 +10,9 @@ class BrandModel {
     AppAssets.imagesHyundaiLogo,
   ];
   final int isActive;
-  final DateTime deletedAt;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   BrandModel({
     required this.id,

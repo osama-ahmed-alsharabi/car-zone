@@ -1,21 +1,51 @@
+import 'package:car_zone/core/utils/app_colors.dart';
+import 'package:car_zone/core/utils/app_text_style.dart';
+import 'package:car_zone/features/home/data/model/brand_model.dart';
 import 'package:car_zone/features/home/presentation/view/widgets/brand_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class BrandListViewWidget extends StatelessWidget {
-  const BrandListViewWidget({super.key});
+  final List<BrandModel> brands;
+  const BrandListViewWidget({super.key, required this.brands});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: SizedBox(
-        height: 70,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return BrandItemWidget();
-          },
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("البراندات العالمية", style: context.textStyle.text24Bold),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "عرض الكل",
+                    style: context.textStyle.text16Regular.copyWith(
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 8),
+          SizedBox(
+            height: 70,
+            child: ListView.builder(
+              itemCount: brands.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return BrandItemWidget(brand: brands[index]);
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -3,6 +3,8 @@ import 'package:car_zone/features/auth/login/data/imp/login_imp.dart';
 import 'package:car_zone/features/auth/login/data/repo/login_repo.dart';
 import 'package:car_zone/features/auth/register/data/imp/register_repo_imp.dart';
 import 'package:car_zone/features/auth/register/data/repo/register_repo.dart';
+import 'package:car_zone/features/home/data/imp/home_imp.dart';
+import 'package:car_zone/features/home/data/repo/home_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
@@ -21,4 +23,6 @@ void setupServiceLocator() {
   getIt.registerSingleton<RegisterRepo>(
     RegisterRepoImp(apiHelper: getIt.get<ApiHelper>()),
   );
+
+  getIt.registerSingleton<HomeRepo>(HomeImp(api: getIt.get<ApiHelper>()));
 }

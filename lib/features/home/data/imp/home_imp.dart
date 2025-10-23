@@ -8,14 +8,17 @@ class HomeImp extends HomeRepo {
 
   HomeImp({required this.api});
   @override
-  Future<BackendResult<BrandModel, String>> getBarnd() async {
+  Future<BackendResult<List<BrandModel>, String>> getBarnd() async {
     BackendResult result = await api.get(
-      endPoint: "endPoint",
+      endPoint: "brands",
       contentType: "",
       accept: "",
     );
     if (result is Success) {
-      return Success(BrandModel.fromJson((result).value));
+      List<BrandModel> brands = (result.value as List<dynamic>)
+          .map((e) => BrandModel.fromJson(e))
+          .toList();
+      return Success(brands);
     } else {
       return Failure("error");
     }
