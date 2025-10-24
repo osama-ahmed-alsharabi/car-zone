@@ -7,13 +7,17 @@ class BrandsCubit extends Cubit<BrandsState> {
   final HomeRepo homeRepo;
   BrandsCubit(this.homeRepo) : super(BrandsInitial());
 
-  getBrands() async {
+  bool _hasLoaded = false; 
+
+  Future<void> getBrands({bool forceRefresh = false}) async {
+    if (_hasLoaded && !forceRefresh) return;
     emit(BrandsLoading());
     final result = await homeRepo.getBarnd();
     if (result is Success) {
+      _hasLoaded = true;
       emit(BrandsSuccess(brands: (result as Success).value));
-    } else {
-      emit(BrandsFauiler(errorMessage: "errorMessage"));
+    } else if (result is Failure) {
+      emit(BrandsFauiler(errorMessage: (result as Failure).error));
     }
   }
 }

@@ -14,9 +14,11 @@ class BrandBlocBuilderWidget extends StatelessWidget {
         if (state is BrandsSuccess) {
           return BrandListViewWidget(brands: state.brands);
         } else if (state is BrandsFauiler) {
-          return Text(state.errorMessage);
+          return Center(child: Text(state.errorMessage));
+        } else if (state is BrandsLoading) {
+          return const Center(child: CircularProgressIndicator());
         } else {
-          return SizedBox();
+          return const SizedBox();
         }
       },
     );
