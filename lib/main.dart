@@ -1,7 +1,10 @@
+import 'package:car_zone/core/helpers/api_helper.dart';
 import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/theme/dark_theme.dart';
 import 'package:car_zone/core/router/app_router.dart';
+import 'package:car_zone/features/home/data/imp/home_imp.dart';
 import 'package:car_zone/generated/l10n.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,6 +12,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  HomeImp(api: ApiHelper(dio: Dio())).getCars();
   setupServiceLocator();
   runApp(const CarZone());
 }
