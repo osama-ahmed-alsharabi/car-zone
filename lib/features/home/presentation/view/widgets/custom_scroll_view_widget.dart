@@ -19,7 +19,9 @@ class CustomScrollViewWidget extends StatelessWidget {
             scrolledUnderElevation: 0,
             elevation: 0,
             floating: true,
-            snap: true,
+            pinned: false,
+            snap: false,
+            stretch: false,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             expandedHeight: 280,
             flexibleSpace: FlexibleSpaceBar(
