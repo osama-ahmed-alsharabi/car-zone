@@ -3,6 +3,7 @@ import 'package:car_zone/features/home/presentation/view_model/get_data/get_data
 import 'package:car_zone/features/home/presentation/view_model/get_data/get_data_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class BrandBlocBuilderWidget extends StatelessWidget {
   const BrandBlocBuilderWidget({super.key});
@@ -16,7 +17,7 @@ class BrandBlocBuilderWidget extends StatelessWidget {
         } else if (state is GetDataFauiler) {
           return Center(child: Text(state.errorMessage));
         } else if (state is GetDataLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return Skeletonizer(enabled: true, child: BrandListViewWidget());
         } else {
           return const SizedBox();
         }

@@ -5,8 +5,8 @@ import 'package:car_zone/features/home/presentation/view/widgets/brand_item_widg
 import 'package:flutter/material.dart';
 
 class BrandListViewWidget extends StatelessWidget {
-  final List<BrandModel> brands;
-  const BrandListViewWidget({super.key, required this.brands});
+  final List<BrandModel>? brands;
+  const BrandListViewWidget({super.key, this.brands});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,21 @@ class BrandListViewWidget extends StatelessWidget {
           SizedBox(
             height: 120,
             child: ListView.builder(
-              itemCount: brands.length,
+              itemCount: brands?.length ?? 7,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return BrandItemWidget(brand: brands[index]);
+                return BrandItemWidget(
+                  brand:
+                      brands?[index] ??
+                      BrandModel(
+                        id: 1,
+                        name: "",
+                        isActive: 1,
+                        deletedAt: null,
+                        createdAt: null,
+                        updatedAt: null,
+                      ),
+                );
               },
             ),
           ),
