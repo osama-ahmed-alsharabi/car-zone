@@ -1,5 +1,4 @@
 import 'package:car_zone/core/utils/app_colors.dart';
-import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -23,7 +22,7 @@ class CustomAppBarWidget extends AppBar {
                  foregroundColor: Colors.white,
                  child: IconButton(
                    onPressed: () {
-                     context.go("/${AppRouterConst.loginViewRouteName}");
+                     context.pop();
                    },
                    icon: const Icon(Icons.arrow_back_ios_new),
                  ),
