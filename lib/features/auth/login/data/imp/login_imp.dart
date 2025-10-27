@@ -3,7 +3,6 @@ import 'package:car_zone/core/helpers/api_helper.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
 import 'package:car_zone/core/errors/firebase_error_helper.dart';
 import 'package:car_zone/core/helpers/secure_token_storage.dart';
-import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/model/user_model.dart';
 import 'package:car_zone/features/auth/login/data/repo/login_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,8 +11,15 @@ import 'package:google_sign_in/google_sign_in.dart';
 class LoginImp extends LoginRepo {
   final FirebaseAuth firebaseAuth;
   final ApiHelper apiHelper;
+  final UserDao userDao;
+  final SecureTokenStorage secureTokenStorage;
 
-  LoginImp({required this.firebaseAuth, required this.apiHelper});
+  LoginImp({
+    required this.userDao,
+    required this.secureTokenStorage,
+    required this.firebaseAuth,
+    required this.apiHelper,
+  });
   @override
   Future<BackendResult<String, String>> loginWithEmailAndPasswordWithFirebase({
     required UserModel user,
@@ -66,12 +72,10 @@ class LoginImp extends LoginRepo {
       data: user.toJson(),
     );
     if (result is Success) {
-      final tokenStorage = getIt<SecureTokenStorage>();
-      await tokenStorage.saveToken((result as Success).value["token"]);
-      await UserDao().insertUser(
-        UserModel.fromJson((result as Success).value["user"]),
-      );
-      return Success(UserModel.fromJson((result as Success).value["user"]));
+      user = UserModel.fromJson((result as Success).value["user"]);
+      await secureTokenStorage.saveToken((result as Success).value["token"]);
+      await userDao.insertUser(user);
+      return Success(user);
     } else {
       return Failure((result as Failure).error);
     }
