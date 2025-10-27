@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/secure_token_storage.dart';
 import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
@@ -49,10 +50,14 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     await _moveUpController.forward();
     await Future.delayed(const Duration(seconds: 1));
     await _moveRightController.forward();
+    final tokenStorage = getIt<SecureTokenStorage>();
+    String? token = await tokenStorage.getToken();
     if (mounted) {
       context.go(
         isFirstTime
             ? "/${AppRouterConst.onBoardingViewRouteName}"
+            : token != null
+            ? "/${AppRouterConst.homeViewRouteName}"
             : "/${AppRouterConst.loginViewRouteName}",
       );
     }

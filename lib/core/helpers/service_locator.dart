@@ -1,4 +1,5 @@
 import 'package:car_zone/core/helpers/api_helper.dart';
+import 'package:car_zone/core/helpers/secure_token_storage.dart';
 import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/features/auth/login/data/imp/login_imp.dart';
 import 'package:car_zone/features/auth/login/data/repo/login_repo.dart';
@@ -8,6 +9,7 @@ import 'package:car_zone/features/home/data/imp/home_imp.dart';
 import 'package:car_zone/features/home/data/repo/home_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,6 +18,9 @@ final getIt = GetIt.instance;
 Future<void> setupServiceLocator() async {
   final prefs = await SharedPreferences.getInstance();
   getIt.registerSingleton<SharedPrefHelper>(SharedPrefHelper(prefs));
+  getIt.registerSingleton<SecureTokenStorage>(
+    SecureTokenStorage(const FlutterSecureStorage()),
+  );
   getIt.registerSingleton<ApiHelper>(ApiHelper(dio: Dio()));
   getIt.registerSingleton<LoginRepo>(
     LoginImp(
