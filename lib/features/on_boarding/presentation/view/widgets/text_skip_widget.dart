@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
@@ -13,7 +14,7 @@ class TextSkipWidget extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: TextButton(
         onPressed: () async {
-          await SharedPrefHelper.setOnboardingShown();
+          getIt.get<SharedPrefHelper>().setOnboardingShown();
           if (!context.mounted) return;
           context.pushReplacementNamed(AppRouterConst.loginViewRouteName);
         },

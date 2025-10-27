@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/assets.dart';
@@ -44,7 +45,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   }
 
   Future<void> _startAnimationSequence() async {
-    final isFirstTime = await SharedPrefHelper.isFirstTime();
+    final isFirstTime = getIt.get<SharedPrefHelper>().isFirstTime();
     await _moveUpController.forward();
     await Future.delayed(const Duration(seconds: 1));
     await _moveRightController.forward();

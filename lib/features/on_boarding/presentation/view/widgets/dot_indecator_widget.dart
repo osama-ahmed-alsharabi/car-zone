@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
@@ -70,7 +71,7 @@ class DotIndecatorWidget extends StatelessWidget {
                   ),
                   onPressed: () async {
                     if (_currentPage == _onboardingModels.length - 1) {
-                      await SharedPrefHelper.setOnboardingShown();
+                      getIt.get<SharedPrefHelper>().setOnboardingShown();
                       if (!context.mounted) return;
                       context.pushReplacementNamed(
                         AppRouterConst.loginViewRouteName,
