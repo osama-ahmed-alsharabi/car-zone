@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,11 @@ class TextSkipWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextButton(
-        onPressed: () => context.pushReplacementNamed(AppRouterConst.loginViewRouteName),
+        onPressed: () async {
+          await SharedPrefHelper.setOnboardingShown();
+          if (!context.mounted) return;
+          context.pushReplacementNamed(AppRouterConst.loginViewRouteName);
+        },
         child: Text(
           "تخطي",
           style: context.textStyle.text16Bold.copyWith(

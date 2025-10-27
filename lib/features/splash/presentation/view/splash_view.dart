@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/assets.dart';
 import 'package:flutter/material.dart';
@@ -35,22 +36,25 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 1500),
     );
 
-    _moveRightAnimation = Tween<double>(begin: 0, end: 500).animate(
+    _moveRightAnimation = Tween<double>(begin: 0, end: 450).animate(
       CurvedAnimation(parent: _moveRightController, curve: Curves.easeIn),
     );
 
     _startAnimationSequence();
-    Future.delayed(const Duration(seconds: 4), () {
-      if (mounted) {
-        context.pushNamed(AppRouterConst.onBoardingViewRouteName);
-      }
-    });
   }
 
   Future<void> _startAnimationSequence() async {
+    final isFirstTime = await SharedPrefHelper.isFirstTime();
     await _moveUpController.forward();
     await Future.delayed(const Duration(seconds: 1));
     await _moveRightController.forward();
+    if (mounted) {
+      context.go(
+        isFirstTime
+            ? "/${AppRouterConst.onBoardingViewRouteName}"
+            : "/${AppRouterConst.loginViewRouteName}",
+      );
+    }
   }
 
   @override

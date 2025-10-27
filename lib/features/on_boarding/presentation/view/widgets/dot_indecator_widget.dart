@@ -1,3 +1,4 @@
+import 'package:car_zone/core/helpers/shared_pref_helper.dart';
 import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
@@ -67,9 +68,13 @@ class DotIndecatorWidget extends StatelessWidget {
                     elevation: 8,
                     shadowColor: AppColors.primaryColor.withAlpha(80),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_currentPage == _onboardingModels.length - 1) {
-                      context.pushReplacementNamed(AppRouterConst.loginViewRouteName);
+                      await SharedPrefHelper.setOnboardingShown();
+                      if (!context.mounted) return;
+                      context.pushReplacementNamed(
+                        AppRouterConst.loginViewRouteName,
+                      );
                     } else {
                       _pageController.nextPage(
                         duration: Duration(milliseconds: 500),
