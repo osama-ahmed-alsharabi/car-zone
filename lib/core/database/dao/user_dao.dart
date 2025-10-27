@@ -28,7 +28,7 @@ class UserDao {
         id: data['id'] as String?,
         fullName: data['fullName'] as String?,
         email: data['email'] as String,
-        phoneNumber: data['phoneNumber'] as String,
+        phoneNumber: data['phoneNumber'] as String?,
         googleId: data['googleId'] as String?,
         emailVerifiedAt: data['emailVerifiedAt'] != null
             ? DateTime.parse(data['emailVerifiedAt'] as String)

@@ -1,3 +1,4 @@
+import 'package:car_zone/core/database/dao/user_dao.dart';
 import 'package:car_zone/core/helpers/api_helper.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
 import 'package:car_zone/core/errors/firebase_error_helper.dart';
@@ -67,6 +68,9 @@ class LoginImp extends LoginRepo {
     if (result is Success) {
       final tokenStorage = getIt<SecureTokenStorage>();
       await tokenStorage.saveToken((result as Success).value["token"]);
+      await UserDao().insertUser(
+        UserModel.fromJson((result as Success).value["user"]),
+      );
       return Success(UserModel.fromJson((result as Success).value["user"]));
     } else {
       return Failure((result as Failure).error);
