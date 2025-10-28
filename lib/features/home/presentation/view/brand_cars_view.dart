@@ -38,8 +38,25 @@ class BrandCarsView extends StatelessWidget {
                   );
           } else if (state is GetDataLoading) {
             return const CarLoadingSkeletonizerWidget();
+          } else if (state is GetDataFauiler) {
+            List<CarModel> cars = state.cars
+                .where((element) => element.brandId == brand.id)
+                .toList();
+            return cars.isEmpty
+                ? Center(
+                    child: Text(
+                      "لا تتوفر سيارات لهذالبراند",
+                      style: context.textStyle.text24Bold,
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: cars.length,
+                    itemBuilder: (context, index) {
+                      return CarItemWidget(car: cars[index]);
+                    },
+                  );
           } else {
-            return const SizedBox();
+            return SizedBox();
           }
         },
       ),
