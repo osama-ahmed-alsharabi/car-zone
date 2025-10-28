@@ -15,9 +15,7 @@ class CarBlocBuilderWidget extends StatelessWidget {
         if (state is GetDataSuccess) {
           return HomeCarListViewWidget(cars: state.cars);
         } else if (state is GetDataFauiler) {
-          return SliverToBoxAdapter(
-            child: Center(child: Text(state.errorMessage)),
-          );
+          return HomeCarListViewWidget(cars: state.cars);
         } else {
           return const SliverToBoxAdapter(child: CarLoadingSkeletonizerWidget());
         }

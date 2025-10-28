@@ -23,7 +23,7 @@ class GetDataCubit extends Cubit<GetDataState> {
         ),
       );
     } else if (brands is Failure) {
-      emit(GetDataFauiler(errorMessage: (brands as Failure).error));
+      emit(GetDataFauiler(cars: (cars as Failure).error));
     }
   }
 }

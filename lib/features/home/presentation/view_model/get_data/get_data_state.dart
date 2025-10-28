@@ -15,7 +15,7 @@ final class GetDataSuccess extends GetDataState {
 final class GetDataLoading extends GetDataState {}
 
 final class GetDataFauiler extends GetDataState {
-  final String errorMessage;
-
-  GetDataFauiler({required this.errorMessage});
+  // final String errorMessage;
+  final List<CarModel> cars;
+  GetDataFauiler({required this.cars});
 }
