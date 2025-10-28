@@ -1,12 +1,18 @@
+import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/router/page_transitions.dart';
 import 'package:car_zone/features/auth/login/presentation/view/login_view.dart';
 import 'package:car_zone/features/auth/register/presentation/view/register_view.dart';
 import 'package:car_zone/features/car_details/presentation/view/car_detail_view.dart';
+import 'package:car_zone/features/home/data/model/brand_model.dart';
 import 'package:car_zone/features/home/data/model/car_model.dart';
+import 'package:car_zone/features/home/data/repo/home_repo.dart';
+import 'package:car_zone/features/home/presentation/view/brand_cars_view.dart';
 import 'package:car_zone/features/home/presentation/view/home_view.dart';
+import 'package:car_zone/features/home/presentation/view_model/get_data/get_data_cubit.dart';
 import 'package:car_zone/features/on_boarding/presentation/view/on_boarding_view.dart';
 import 'package:car_zone/features/splash/presentation/view/splash_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
@@ -64,6 +70,19 @@ class AppRouter {
         pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           child: const HomeView(),
+          transitionsBuilder: PageTransitions.slideFromLeft,
+        ),
+      ),
+      GoRoute(
+        path: '/${AppRouterConst.brandCarslViewRouteName}',
+        name: AppRouterConst.brandCarslViewRouteName,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: BlocProvider(
+            create: (context) =>
+                GetDataCubit(getIt.get<HomeRepo>())..getGetData(),
+            child: BrandCarsView(brand: state.extra as BrandModel),
+          ),
           transitionsBuilder: PageTransitions.slideFromLeft,
         ),
       ),

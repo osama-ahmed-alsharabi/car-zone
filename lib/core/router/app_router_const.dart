@@ -5,4 +5,5 @@ abstract class AppRouterConst {
   static const String registerViewRouteName = "register";
   static const String homeViewRouteName = "home";
   static const String carDetailViewRouteName = "car_detail";
+  static const String brandCarslViewRouteName = "brand_cars";
 }
