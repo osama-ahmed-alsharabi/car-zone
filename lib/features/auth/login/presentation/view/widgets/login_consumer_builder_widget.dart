@@ -5,6 +5,7 @@ import 'package:car_zone/core/widgets/loading_widget.dart';
 import 'package:car_zone/features/auth/login/presentation/view/widgets/body_login_widget.dart';
 import 'package:car_zone/features/auth/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:car_zone/features/auth/login/presentation/view_model/cubit/login_state.dart';
+import 'package:car_zone/features/home/presentation/view_model/user_view_model.dart/user_view_model_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -15,8 +16,10 @@ class LoginConsumerBuilderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is LoginSuccess) {
+          await BlocProvider.of<UserViewModelCubit>(context).getUserData();
+          if (!context.mounted) return;
           CustomSnackBar.customSnackBar(
             context: context,
             title: state.successMessage,

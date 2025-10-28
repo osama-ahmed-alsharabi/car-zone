@@ -1,5 +1,6 @@
 import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
+import 'package:car_zone/features/home/presentation/view/widgets/user_name_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeAppBarWidget extends AppBar {
@@ -16,9 +17,9 @@ class HomeAppBarWidget extends AppBar {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("مبرحبا بك👋🏻", style: context.textStyle.text24Bold),
                   SizedBox(height: 13),
-                  Text("أسامة", style: context.textStyle.text16Bold),
+                  Text("مبرحبا بك👋🏻", style: context.textStyle.text24Bold),
+                  UserNameBlocBuilder(),
                 ],
               ),
               const Spacer(),
