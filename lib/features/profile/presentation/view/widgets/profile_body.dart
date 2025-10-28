@@ -1,6 +1,5 @@
-import 'package:car_zone/core/widgets/custom_button_widget.dart';
+import 'package:car_zone/features/profile/presentation/view/widgets/profile_content_bloc_builder.dart';
 import 'package:car_zone/features/profile/presentation/view/widgets/profile_header.dart';
-import 'package:car_zone/features/profile/presentation/view/widgets/setting_setion.dart';
 import 'package:flutter/material.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -24,9 +23,7 @@ class ProfileBody extends StatelessWidget {
               SizedBox(height: 70),
               ProfileHeader(),
               SizedBox(height: 40),
-              SettingsSection(),
-              SizedBox(height: 40),
-              CustomButtonWidget(text: "تسجيل الخروج"),
+              ProfileContentBlocBuilder(),
             ],
           ),
         ),

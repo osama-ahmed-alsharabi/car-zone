@@ -32,7 +32,7 @@ class SettingsSection extends StatelessWidget {
         return Container(
           margin: const EdgeInsets.only(bottom: 12),
           decoration: BoxDecoration(
-            color: Colors.white.withAlpha(50),
+            color: Colors.black,
             borderRadius: BorderRadius.circular(14),
           ),
           child: ListTile(
