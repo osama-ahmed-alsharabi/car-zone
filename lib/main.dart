@@ -1,4 +1,5 @@
 import 'package:car_zone/core/database/dao/user_dao.dart';
+import 'package:car_zone/core/helpers/app_bloc_observer.dart';
 import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/theme/dark_theme.dart';
 import 'package:car_zone/core/router/app_router.dart';
@@ -13,6 +14,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await setupServiceLocator();
+  Bloc.observer = AppBlocObserver();
   runApp(const CarZone());
 }
 
