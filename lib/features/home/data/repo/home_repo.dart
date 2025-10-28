@@ -4,5 +4,5 @@ import 'package:car_zone/features/home/data/model/car_model.dart';
 
 abstract class HomeRepo {
   Future<BackendResult<List<BrandModel>, String>> getBarnd();
-  Future<BackendResult<List<CarModel>, String>> getCars();
+  Future<BackendResult<List<CarModel>, List<CarModel>>> getCars();
 }
