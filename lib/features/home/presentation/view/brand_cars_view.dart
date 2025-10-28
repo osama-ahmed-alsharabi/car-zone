@@ -1,3 +1,4 @@
+import 'package:car_zone/core/utils/app_text_style.dart';
 import 'package:car_zone/core/widgets/custom_app_bar_widget.dart';
 import 'package:car_zone/features/home/data/model/brand_model.dart';
 import 'package:car_zone/features/home/data/model/car_model.dart';
@@ -23,7 +24,12 @@ class BrandCarsView extends StatelessWidget {
                 .where((element) => element.brandId == brand.id)
                 .toList();
             return cars.isEmpty
-                ? Center(child: Text("لا تتوفر سيارة لهذالبراند"))
+                ? Center(
+                    child: Text(
+                      "لا تتوفر سيارات لهذالبراند",
+                      style: context.textStyle.text24Bold,
+                    ),
+                  )
                 : ListView.builder(
                     itemCount: cars.length,
                     itemBuilder: (context, index) {
@@ -31,9 +37,9 @@ class BrandCarsView extends StatelessWidget {
                     },
                   );
           } else if (state is GetDataLoading) {
-            return CarLoadingSkeletonizerWidget();
+            return const CarLoadingSkeletonizerWidget();
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       ),

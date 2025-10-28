@@ -19,7 +19,7 @@ class CarBlocBuilderWidget extends StatelessWidget {
             child: Center(child: Text(state.errorMessage)),
           );
         } else {
-          return SliverToBoxAdapter(child: CarLoadingSkeletonizerWidget());
+          return const SliverToBoxAdapter(child: CarLoadingSkeletonizerWidget());
         }
       },
     );

@@ -20,11 +20,11 @@ class HomeBlocBuilderWidget extends StatelessWidget {
         child: BlocBuilder<HomeUiCubit, HomeUiState>(
           builder: (context, state) {
             if (state is HomeUiHome || state is HomeUiInitial) {
-              return HomeViewBodyWidget();
+              return const HomeViewBodyWidget();
             } else if (state is HomeUiFavorite) {
-              return FavoriteView();
+              return const FavoriteView();
             } else {
-              return ProfileView();
+              return const ProfileView();
             }
           },
         ),

@@ -27,10 +27,10 @@ class CarLoadingSkeletonizerWidget extends StatelessWidget {
                   child: AspectRatio(
                     aspectRatio: 1,
                     child: Container(
-                      padding: EdgeInsets.all(6),
+                      padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage(
                             AppAssets.imagesSecondImageOnboarding,
@@ -40,8 +40,8 @@ class CarLoadingSkeletonizerWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 5),
-                Expanded(
+                const SizedBox(width: 5),
+                const Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -51,7 +51,7 @@ class CarLoadingSkeletonizerWidget extends StatelessWidget {
                           Text("ldksafj sdlf"),
                           Spacer(),
                           Padding(
-                            padding: const EdgeInsets.symmetric(
+                            padding: EdgeInsets.symmetric(
                               horizontal: 12.0,
                             ),
                             child: Row(

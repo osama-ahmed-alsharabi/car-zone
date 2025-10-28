@@ -37,7 +37,7 @@ class CarItemWidget extends StatelessWidget {
                       fit: BoxFit.cover,
                       image: car.images.mainImage.isNotEmpty
                           ? NetworkImage(car.images.mainImage )
-                          : AssetImage(AppAssets.imagesSecondImageOnboarding),
+                          : const AssetImage(AppAssets.imagesSecondImageOnboarding),
                     ),
                   ),
                 ),

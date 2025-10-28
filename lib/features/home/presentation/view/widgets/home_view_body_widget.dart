@@ -18,7 +18,7 @@ class HomeViewBodyWidget extends StatelessWidget {
       child: Column(
         children: [
           HomeAppBarWidget(context: context),
-          CustomScrollViewWidget(),
+          const CustomScrollViewWidget(),
         ],
       ),
     );

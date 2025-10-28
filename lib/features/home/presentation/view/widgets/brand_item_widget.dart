@@ -35,7 +35,7 @@ class BrandItemWidget extends StatelessWidget {
                       BlendMode.srcIn,
                     ),
                   )
-                : SizedBox(height: 50, width: 50),
+                : const SizedBox(height: 50, width: 50),
           ),
           brand.name.isNotEmpty
               ? Text(brand.name, style: context.textStyle.text16Regular)

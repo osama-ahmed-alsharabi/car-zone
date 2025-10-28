@@ -1,3 +1,4 @@
+import 'package:car_zone/core/utils/app_text_style.dart';
 import 'package:car_zone/features/home/data/model/car_model.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,14 +13,7 @@ class LocationSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'الموقع',
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Cairo',
-            color: Colors.black87,
-          ),
-        ),
+        Text('الموقع', style: context.textStyle.text20Bold),
         const SizedBox(height: 16),
         Container(
           decoration: BoxDecoration(

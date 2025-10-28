@@ -24,9 +24,9 @@ class CarImageHeader extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: double.infinity,
                   errorBuilder: (context, error, stackTrace) =>
-                      DefaultCarImage(),
+                      const DefaultCarImage(),
                 )
-              : DefaultCarImage(),
+              : const DefaultCarImage(),
         ),
         title: Text(
           car.title,
@@ -49,7 +49,7 @@ class CarImageHeader extends StatelessWidget {
         onPressed: () {
           context.pop();
         },
-        icon: Icon(Icons.arrow_back_ios_new),
+        icon: const Icon(Icons.arrow_back_ios_new),
       ),
       actions: const [AppBarActionButtons()],
     );

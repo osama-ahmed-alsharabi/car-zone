@@ -16,7 +16,7 @@ class UserNameBlocBuilder extends StatelessWidget {
         if (state is UserViewModelHasData) {
           return Column(
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 state.user.fullName ?? "لا يوجد اسم",
                 style: context.textStyle.text16Bold,
@@ -34,7 +34,7 @@ class UserNameBlocBuilder extends StatelessWidget {
             ),
           );
         } else {
-          return SizedBox();
+          return const SizedBox();
         }
       },
     );

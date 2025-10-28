@@ -11,10 +11,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomeUiCubit(),
-      child: Scaffold(
+      child: const Scaffold(
         body: Stack(
           children: [
-            const HomeBlocBuilderWidget(),
+            HomeBlocBuilderWidget(),
             Positioned(
               left: 24,
               right: 24,

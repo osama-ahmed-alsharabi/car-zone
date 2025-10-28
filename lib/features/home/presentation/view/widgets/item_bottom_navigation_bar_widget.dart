@@ -33,12 +33,12 @@ class ItemBottomNavigationBarWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Icon(icon),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             isShow
                 ? Text(title, style: context.textStyle.text14Regular)
-                : SizedBox(),
+                : const SizedBox(),
           ],
         ),
       ),

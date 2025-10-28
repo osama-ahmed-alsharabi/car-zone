@@ -1,4 +1,4 @@
-
+import 'package:car_zone/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class DescriptionSection extends StatelessWidget {
@@ -11,12 +11,7 @@ class DescriptionSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'الوصف',
-          style: Theme.of(
-            context,
-          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
-        ),
+        Text('الوصف', style: context.textStyle.text20Bold),
         const SizedBox(height: 12),
         Container(
           padding: const EdgeInsets.all(16),
@@ -27,11 +22,7 @@ class DescriptionSection extends StatelessWidget {
           ),
           child: Text(
             description,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              height: 1.6,
-              fontFamily: 'Cairo',
-              fontSize: 16,
-            ),
+            style: context.textStyle.text16Regular,
             textAlign: TextAlign.right,
           ),
         ),

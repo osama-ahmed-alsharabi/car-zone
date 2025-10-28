@@ -17,9 +17,9 @@ class HomeAppBarWidget extends AppBar {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 13),
+                  const SizedBox(height: 13),
                   Text("مبرحبا بك👋🏻", style: context.textStyle.text24Bold),
-                  UserNameBlocBuilder(),
+                  const UserNameBlocBuilder(),
                 ],
               ),
               const Spacer(),
