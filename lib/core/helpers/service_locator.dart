@@ -1,3 +1,4 @@
+import 'package:car_zone/core/database/dao/brand_local_data_source.dart';
 import 'package:car_zone/core/database/dao/car_local_data_source.dart';
 import 'package:car_zone/core/database/dao/user_dao.dart';
 import 'package:car_zone/core/helpers/api_helper.dart';
@@ -20,6 +21,7 @@ final getIt = GetIt.instance;
 Future<void> setupServiceLocator() async {
   getIt.registerSingleton<UserDao>(UserDao());
   getIt.registerSingleton<CarLocalDataSource>(CarLocalDataSource());
+  getIt.registerSingleton<BrandLocalDataSource>(BrandLocalDataSource());
   final prefs = await SharedPreferences.getInstance();
   getIt.registerSingleton<SharedPrefHelper>(SharedPrefHelper(prefs));
   getIt.registerSingleton<SecureTokenStorage>(
@@ -42,6 +44,7 @@ Future<void> setupServiceLocator() async {
     HomeImp(
       api: getIt.get<ApiHelper>(),
       localDataSource: getIt.get<CarLocalDataSource>(),
+      brandLocalDataSource: getIt.get<BrandLocalDataSource>(),
     ),
   );
 }

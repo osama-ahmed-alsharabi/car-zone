@@ -15,7 +15,7 @@ class BrandBlocBuilderWidget extends StatelessWidget {
         if (state is GetDataSuccess) {
           return BrandListViewWidget(brands: state.brands);
         } else if (state is GetDataFauiler) {
-          return Center(child: Text("state.errorMessage"));
+          return BrandListViewWidget(brands: state.brands);
         } else if (state is GetDataLoading) {
           return const Skeletonizer(
             enabled: true,

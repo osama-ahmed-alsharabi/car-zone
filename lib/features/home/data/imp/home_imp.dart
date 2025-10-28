@@ -1,3 +1,4 @@
+import 'package:car_zone/core/database/dao/brand_local_data_source.dart';
 import 'package:car_zone/core/database/dao/car_local_data_source.dart';
 import 'package:car_zone/core/helpers/api_helper.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
@@ -7,23 +8,31 @@ import 'package:car_zone/features/home/data/repo/home_repo.dart';
 
 class HomeImp extends HomeRepo {
   final ApiHelper api;
+  final BrandLocalDataSource brandLocalDataSource;
   final CarLocalDataSource localDataSource;
 
-  HomeImp({required this.api, required this.localDataSource});
+  HomeImp({
+    required this.api,
+    required this.localDataSource,
+    required this.brandLocalDataSource,
+  });
   @override
-  Future<BackendResult<List<BrandModel>, String>> getBarnd() async {
+  Future<BackendResult<List<BrandModel>, List<BrandModel>>> getBarnd() async {
     BackendResult result = await api.get(
       endPoint: "brands",
       contentType: "",
       accept: "",
     );
+    List<BrandModel> brands;
     if (result is Success) {
-      List<BrandModel> brands = (result.value as List<dynamic>)
+      brands = (result.value as List<dynamic>)
           .map((e) => BrandModel.fromJson(e))
           .toList();
+      await brandLocalDataSource.cacheBrands(brands);
       return Success(brands);
     } else {
-      return Failure("error");
+      brands = await brandLocalDataSource.getCachedBrands();
+      return Failure(brands);
     }
   }
 
