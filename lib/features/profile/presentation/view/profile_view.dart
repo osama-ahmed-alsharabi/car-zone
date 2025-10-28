@@ -1,10 +1,13 @@
-import 'package:flutter/widgets.dart';
+import 'package:car_zone/features/profile/presentation/view/widgets/profile_body.dart';
+import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Profile Page"));
+    return const Scaffold(
+      body: ProfileBody(),
+    );
   }
 }
