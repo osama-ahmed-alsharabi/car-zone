@@ -54,6 +54,17 @@ class AppDatabase {
             sub_image TEXT
           )
         ''');
+
+        await db.execute('''
+          CREATE TABLE brands (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            is_active INTEGER,
+            deleted_at TEXT,
+            created_at TEXT,
+            updated_at TEXT
+          )
+          ''');
       },
     );
   }
