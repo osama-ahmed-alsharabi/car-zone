@@ -34,6 +34,26 @@ class AppDatabase {
             updatedAt TEXT
           );
         ''');
+
+        await db.execute('''
+          CREATE TABLE cars (
+            id INTEGER PRIMARY KEY,
+            title TEXT,
+            description TEXT,
+            model TEXT,
+            price TEXT,
+            condition TEXT,
+            engine_cylinders TEXT,
+            fuel_type TEXT,
+            latitude TEXT,
+            longitude TEXT,
+            brand_id INTEGER,
+            province_id INTEGER,
+            user_id INTEGER,
+            main_image TEXT,
+            sub_image TEXT
+          )
+        ''');
       },
     );
   }
