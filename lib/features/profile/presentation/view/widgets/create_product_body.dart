@@ -25,6 +25,12 @@ class CreateProductBody extends StatelessWidget {
             labelText: "اسم السيارة",
             icon: Icons.title,
           ),
+          SizedBox(height: 20),
+          CustomTextFormFieldWidget(
+            maxLines: 5,
+            labelText: "وصف السيارة",
+            icon: Icons.description,
+          ),
         ],
       ),
     );
