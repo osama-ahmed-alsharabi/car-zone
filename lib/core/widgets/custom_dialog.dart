@@ -60,7 +60,9 @@ class CustomDialog {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.pop(context);
+                            if (Navigator.canPop(context)) {
+                              Navigator.pop(context);
+                            }
                             if (onConfirm != null) onConfirm();
                           },
                           child: Text(
