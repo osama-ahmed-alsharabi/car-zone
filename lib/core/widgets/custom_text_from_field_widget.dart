@@ -37,7 +37,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
         focusedBorder: border(),
         focusedErrorBorder: border(color: Colors.red),
       ),
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: keyboardType,
     );
   }
 

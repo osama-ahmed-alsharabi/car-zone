@@ -31,6 +31,12 @@ class CreateProductBody extends StatelessWidget {
             labelText: "وصف السيارة",
             icon: Icons.description,
           ),
+          SizedBox(height: 15),
+          CustomTextFormFieldWidget(
+            keyboardType: TextInputType.number,
+            labelText: "موديل السيارة",
+            icon: Icons.model_training_rounded,
+          ),
         ],
       ),
     );
