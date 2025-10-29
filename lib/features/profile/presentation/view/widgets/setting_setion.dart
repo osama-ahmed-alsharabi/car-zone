@@ -1,6 +1,8 @@
+import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/app_text_style.dart';
 import 'package:car_zone/features/profile/data/model/setting_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsSection extends StatelessWidget {
   const SettingsSection({super.key});
@@ -11,7 +13,9 @@ class SettingsSection extends StatelessWidget {
       SettingModel(
         title: 'اضافة سيارة للبيع',
         icon: Icons.car_crash_rounded,
-        onTap: () {},
+        onTap: () {
+          context.pushNamed(AppRouterConst.createProductlViewRouteName);
+        },
       ),
       SettingModel(
         title: 'الإشعارات',

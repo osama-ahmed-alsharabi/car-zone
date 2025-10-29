@@ -11,6 +11,7 @@ import 'package:car_zone/features/home/presentation/view/brand_cars_view.dart';
 import 'package:car_zone/features/home/presentation/view/home_view.dart';
 import 'package:car_zone/features/home/presentation/view_model/get_data/get_data_cubit.dart';
 import 'package:car_zone/features/on_boarding/presentation/view/on_boarding_view.dart';
+import 'package:car_zone/features/profile/presentation/view/create_product_view.dart';
 import 'package:car_zone/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -83,6 +84,15 @@ class AppRouter {
                 GetDataCubit(getIt.get<HomeRepo>())..getGetData(),
             child: BrandCarsView(brand: state.extra as BrandModel),
           ),
+          transitionsBuilder: PageTransitions.slideFromLeft,
+        ),
+      ),
+      GoRoute(
+        path: '/${AppRouterConst.createProductlViewRouteName}',
+        name: AppRouterConst.createProductlViewRouteName,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const CreateProductView(),
           transitionsBuilder: PageTransitions.slideFromLeft,
         ),
       ),
