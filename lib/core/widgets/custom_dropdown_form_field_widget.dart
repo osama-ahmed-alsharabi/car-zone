@@ -6,6 +6,7 @@ class CustomDropdownFormFieldWidget extends StatelessWidget {
   final List<String> items;
   final String? value;
   final void Function(String?)? onChanged;
+  final String? Function(String?)? validator;
 
   const CustomDropdownFormFieldWidget({
     super.key,
@@ -14,11 +15,13 @@ class CustomDropdownFormFieldWidget extends StatelessWidget {
     required this.items,
     this.value,
     this.onChanged,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
+      validator: validator,
       value: value,
       onChanged: onChanged,
       dropdownColor: Colors.black87,

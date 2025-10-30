@@ -1,5 +1,8 @@
 import 'dart:io';
+import 'package:car_zone/core/database/dao/user_dao.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
+import 'package:car_zone/core/helpers/service_locator.dart';
+import 'package:car_zone/core/model/user_model.dart';
 import 'package:car_zone/features/profile/data/repo/add_car_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,13 +35,12 @@ class AddCarCubit extends Cubit<AddCarState> {
     required String fuelType,
     required int brandId,
     required int provinceId,
-    required int userId,
   }) async {
     if (selectedImage == null) {
       emit(AddCarFailure("الرجاء اختيار صورة أولاً"));
       return;
     }
-
+    UserModel? user = await getIt.get<UserDao>().getUser();
     emit(AddCarLoading());
 
     final carModel = CarModel(
@@ -51,7 +53,7 @@ class AddCarCubit extends Cubit<AddCarState> {
       fuelType: fuelType,
       brandId: brandId,
       provinceId: provinceId,
-      userId: userId,
+      userId: int.parse(user!.id!),
       images: ImagesModel(mainImage: ""),
     );
 
