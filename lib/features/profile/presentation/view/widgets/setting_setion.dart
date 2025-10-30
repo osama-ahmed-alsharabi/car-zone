@@ -17,12 +17,19 @@ class SettingsSection extends StatelessWidget {
           context.pushNamed(AppRouterConst.createProductlViewRouteName);
         },
       ),
+
+      SettingModel(
+        title: 'معرض سياراتي',
+        icon: Icons.car_rental,
+        onTap: () {
+          context.pushNamed(AppRouterConst.userCarsListViewRouteName);
+        },
+      ),
       SettingModel(
         title: 'الإشعارات',
         icon: Icons.notifications_none,
         onTap: () {},
       ),
-      SettingModel(title: 'اللغة', icon: Icons.language, onTap: () {}),
       SettingModel(title: 'الخصوصية', icon: Icons.lock_outline, onTap: () {}),
       SettingModel(
         title: 'المساعدة والدعم',
