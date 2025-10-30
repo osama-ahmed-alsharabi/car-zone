@@ -29,10 +29,11 @@ class UserCarsCubit extends Cubit<UserCarsState> {
       token: token,
       endPoint: "products",
       contentType: "",
-      accept: "accept",
+      accept: "",
       id: id,
     );
     if (result is Success) {
+      getUserCars();
       emit(UserCarsDeleted(message: "تم الحذف بنجاح"));
     } else {
       emit(UserCarsFailedToDelete(errorMessage: (result as Failure).error));

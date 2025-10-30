@@ -86,7 +86,7 @@ class ApiHelper {
       );
       Response response = await dio.delete(
         options: options,
-        "$baseURL$endPoint$id",
+        "$baseURL$endPoint/$id",
       );
       return Success(response.data);
     } on DioException catch (e) {
