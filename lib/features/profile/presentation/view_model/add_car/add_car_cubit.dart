@@ -3,7 +3,7 @@ import 'package:car_zone/core/database/dao/user_dao.dart';
 import 'package:car_zone/core/helpers/backend_result.dart';
 import 'package:car_zone/core/helpers/service_locator.dart';
 import 'package:car_zone/core/model/user_model.dart';
-import 'package:car_zone/features/profile/data/repo/add_car_repo.dart';
+import 'package:car_zone/features/profile/data/repo/profile_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:car_zone/features/home/data/model/car_model.dart';
@@ -11,7 +11,7 @@ import 'package:car_zone/features/home/data/model/images_model.dart';
 import 'add_car_state.dart';
 
 class AddCarCubit extends Cubit<AddCarState> {
-  final AddCarRepo repo;
+  final ProfileRepo repo;
   AddCarCubit(this.repo) : super(AddCarInitial());
 
   File? selectedImage;

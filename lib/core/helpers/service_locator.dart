@@ -10,8 +10,8 @@ import 'package:car_zone/features/auth/register/data/imp/register_repo_imp.dart'
 import 'package:car_zone/features/auth/register/data/repo/register_repo.dart';
 import 'package:car_zone/features/home/data/imp/home_imp.dart';
 import 'package:car_zone/features/home/data/repo/home_repo.dart';
-import 'package:car_zone/features/profile/data/imp/add_car_imp.dart';
-import 'package:car_zone/features/profile/data/repo/add_car_repo.dart';
+import 'package:car_zone/features/profile/data/imp/profile_imp.dart';
+import 'package:car_zone/features/profile/data/repo/profile_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -31,7 +31,13 @@ Future<void> setupServiceLocator() async {
   );
   getIt.registerSingleton<ApiHelper>(ApiHelper(dio: Dio()));
 
-  getIt.registerSingleton<AddCarRepo>(AddCarImp(api: getIt.get<ApiHelper>()));
+  getIt.registerSingleton<ProfileRepo>(
+    ProfileImp(
+      getIt.get<CarLocalDataSource>(),
+      getIt.get<UserDao>(),
+      api: getIt.get<ApiHelper>(),
+    ),
+  );
   getIt.registerSingleton<LoginRepo>(
     LoginImp(
       firebaseAuth: FirebaseAuth.instance,
