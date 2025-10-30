@@ -1,3 +1,4 @@
+import 'package:car_zone/core/router/app_router_const.dart';
 import 'package:car_zone/core/utils/app_colors.dart';
 import 'package:car_zone/core/widgets/custom_app_bar_widget.dart';
 import 'package:car_zone/core/widgets/custom_snack_bar.dart';
@@ -7,6 +8,7 @@ import 'package:car_zone/features/auth/register/presentation/view_model/register
 import 'package:car_zone/features/auth/register/presentation/view_model/register_cubit/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterBlocConsumerWidget extends StatelessWidget {
   const RegisterBlocConsumerWidget({super.key});
@@ -21,8 +23,7 @@ class RegisterBlocConsumerWidget extends StatelessWidget {
             context: context,
             title: "تم تسجيل الدخول بنجاح",
           );
-
-          Navigator.pop(context);
+          context.goNamed(AppRouterConst.loginViewRouteName);
         } else if (state is RegisterFailure) {
           CustomSnackBar.customSnackBar(
             color: AppColors.errorColor,

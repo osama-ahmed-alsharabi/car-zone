@@ -71,12 +71,17 @@ class ProfileImp extends ProfileRepo {
       cars = (result.value["data"] as List<dynamic>)
           .map((e) => CarModel.fromJson(e))
           .toList();
-      cars.where((element) => element.userId == userId);
-      await localDataSource.cacheCars(cars);
-      return Success(cars);
+      List<CarModel> filterCar = cars
+          .where((element) => element.userId == userId)
+          .toList();
+      await localDataSource.cacheCars(filterCar);
+      return Success(filterCar);
     } else {
       cars = await localDataSource.getCachedCars();
-      return Failure(cars);
+      List<CarModel> filterCar = cars
+          .where((element) => element.userId == userId)
+          .toList();
+      return Failure(filterCar);
     }
   }
 }

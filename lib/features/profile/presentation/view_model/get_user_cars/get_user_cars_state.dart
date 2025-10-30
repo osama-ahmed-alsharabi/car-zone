@@ -5,13 +5,13 @@ abstract class GetUserCarsState {}
 final class GetUserCarsInitial extends GetUserCarsState {}
 
 final class GetUserCarsSuccess extends GetUserCarsState {
-  final CarModel carModel;
+  final List<CarModel> carModel;
 
   GetUserCarsSuccess({required this.carModel});
 }
 
 final class GetUserCarsFauiler extends GetUserCarsState {
-  final CarModel carModel;
+  final List<CarModel> carModel;
 
   GetUserCarsFauiler({required this.carModel});
 }
