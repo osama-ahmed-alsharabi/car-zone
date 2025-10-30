@@ -10,7 +10,7 @@ class ApiHelper {
 
   Future<BackendResult<T, String>> post<T>({
     required String endPoint,
-    Map<String, dynamic>? data,
+    dynamic data,
     required String accept,
     required String contentType,
     String? token,

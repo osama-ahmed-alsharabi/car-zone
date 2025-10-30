@@ -1,7 +1,7 @@
 import 'package:car_zone/features/home/data/model/images_model.dart';
 
 class CarModel {
-  final int id;
+  final int? id;
   final String title;
   final String description;
   final dynamic model;
@@ -17,7 +17,7 @@ class CarModel {
   final ImagesModel images;
 
   CarModel({
-    required this.id,
+    this.id,
     required this.title,
     required this.description,
     required this.model,
@@ -25,8 +25,8 @@ class CarModel {
     required this.condition,
     required this.engineCylinders,
     required this.fuelType,
-    required this.latitude,
-    required this.longitude,
+    this.latitude,
+    this.longitude,
     required this.brandId,
     required this.provinceId,
     required this.userId,
@@ -54,16 +54,13 @@ class CarModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'title': title,
       'description': description,
-      'model': model,
+      'model_car': model,
       'price': price,
-      'condition': condition,
-      'engine_cylinders': engineCylinders,
+      'car_status': condition,
+      'engine_number': engineCylinders,
       'fuel_type': fuelType,
-      'latitude': latitude,
-      'longitude': longitude,
       'brand_id': brandId,
       'province_id': provinceId,
       'user_id': userId,

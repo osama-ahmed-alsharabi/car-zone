@@ -1,8 +1,8 @@
 class ImagesModel {
   final String mainImage;
-  final String subImage;
+  final String? subImage;
 
-  ImagesModel({required this.mainImage, required this.subImage});
+  ImagesModel({required this.mainImage,  this.subImage});
 
   factory ImagesModel.fromJson(Map<String, dynamic> json) {
     return ImagesModel(
